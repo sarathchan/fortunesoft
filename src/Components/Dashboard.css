@@ -1,0 +1,101 @@
+.Header-Row{
+    border-bottom: 1px solid #deb992;
+    display: flex;
+    justify-content: space-between;
+}
+.searchInput{
+    height: 36px;
+    padding-left: 22px;
+    border-radius: 6px;
+    margin-top: 30px;
+    border: 2px solid #deb992;
+    background-color: #051622;
+    
+}
+.searchInput::placeholder{
+    color: #deb992 !important;
+}
+.inputSearch{
+    float: right;
+    position: absolute;
+    top: 38px;
+    right: 210px;
+    font-size: 16px;
+    color: #504335;
+}
+.Header-Search{
+    margin-right: 200px;
+    width: 400px;
+}
+.Header-MovieName h1{
+    color:#deb992;
+    font-weight: 100;
+    margin-left: 20px;
+}
+.circle-group {
+    /* position: absolute; */
+    /* bottom: -50%; */
+    /* left: -10%; */
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+.circle-1 {
+    position: absolute;
+    top: 150px;
+    margin-left: -180px;
+    width: 627px;
+    height: 627px;
+    border: 1px solid #deb992;
+    border-radius: 98%;
+    transform-origin: 40% 50% 0;
+    animation: spin 15s linear 0s infinite reverse;
+}
+.circle-2 {
+    position: absolute;
+    top: 340px;
+    margin-right: 130px;
+    width: 440px;
+    height: 440px;
+    border: 1px solid #deb992;
+    border-radius: 98%;
+    transform-origin: 30% 40% 0;
+    animation: spin 15s linear 0s infinite;
+}
+.circle-3 {
+    position: absolute;
+    top: 250px;
+    margin-left: 50px;
+    width: 627px;
+    height: 627px;
+    border: 1px solid #deb992;
+    border-radius: 98%;
+    transform-origin: 65% 60% 0;
+    animation: spin 15s linear 0s infinite;
+}
+.ImageCards{
+    margin-top: 40px;
+    margin-left: 1.5%;
+    border-image: fill 0 linear-gradient(#0001,#000);
+    z-index: 10;
+}
+:where(.css-dev-only-do-not-override-usln0u).ant-card .ant-card-body {
+    padding: 22px;
+    border-radius: 5px;
+    background-color: #051622 ;
+    border: 1px solid #deb992 !important;
+}
+.image{
+    border-image: fill 0 linear-gradient(#0001,#000);
+}
+.Movie-title{
+    left: 30px;
+    color: #fff;
+    font-weight: 00;
+    position: absolute;
+    /* top: 165px; */
+    bottom: 15px;
+}
+.genere-name{
+    color: #deb992;
+}
