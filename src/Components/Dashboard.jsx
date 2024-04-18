@@ -9,6 +9,8 @@ import { motion } from 'framer-motion'
 const Dashboard = () => {
   const [Data, setData] = useState([])
   const [SortedData, setSortedData] = useState([])
+  const [SearchInput, setSearchInput] = useState('')
+  const [SearchedData, setSearchedData] = useState([])
   const token = "eyJhbGciOiJIUzI1NiJ9.e30.wv682cI5SYQa70_kULC7iPFq8lPXHMtC9ML4KVkGYq0";
 
   useEffect(() => {
@@ -30,18 +32,15 @@ const Dashboard = () => {
   }, [])
 
   function sortMoviesByGenre(movies) {
-    // Create an empty object to hold movies categorized by genre
+   
     const moviesByGenre = {};
 
-    // Iterate through each movie
     movies.forEach(movie => {
-      // Iterate through each genre of the movie
+      
       movie.genres.forEach(genre => {
-        // If the genre category doesn't exist, create it
         if (!moviesByGenre[genre]) {
           moviesByGenre[genre] = [];
         }
-        // Add the movie to the respective genre category
         moviesByGenre[genre].push(movie);
       });
     });
@@ -50,6 +49,18 @@ const Dashboard = () => {
     setSortedData(moviesByGenre)
     return moviesByGenre;
   }
+
+  useEffect(() => {
+    
+  const filteredData = Data.filter((item) =>
+  item.slug.includes(SearchInput.toLowerCase()));
+
+  console.log(filteredData)
+  setSearchedData(filteredData)
+    
+  }, [SearchInput])
+  
+  console.log(SearchInput ,"search",SearchInput != "")
   return (
     <div>
       <Row className='Header-Row'>
@@ -60,45 +71,75 @@ const Dashboard = () => {
           </h1>
         </div>
         <div className='Header-Search'>
-          <Input placeholder='Search' className='searchInput' />
-          <SearchOutlined className='inputSearch' />
+          <Input placeholder='Search'
+          onChange={(e) => setSearchInput(e.target.value)}
+          className='searchInput' />
+          <SearchOutlined
+          className='inputSearch'
+          
+           />
         </div>
       </Row>
 
       <Row>
-        
+        {
+          SearchInput != "" ? 
+          <>
+          {SearchedData.map((movie) => (
+            <Card className='ImageCards'
+            bordered={false}>
+                <motion.div
+                  whileHover={{ scale: 1.11 }}>
+                  <img className='image' src={movie.backdrop} width={300} height={200}>
+                  </img>
+                </motion.div>
+                <h2 className='Movie-title'>
+                    {movie.title}
+                  </h2>
+                  </Card>
+          ))}
+          </>
+          :
+      <>
           <Row>
             {
 
               Object.keys(SortedData).map((Item) => (
 <>
                
-                    <h2 className='genere-name'>
+                    <h1 className='genere-name'>
                       {Item}
-                    </h2>
+                    </h1>
+<div className='Moviebygenere-row'>
+
 
                     {SortedData[Item].map((movie) => (
-                      <>
+                     
+                      <div>
                       <Card key={Item} className='ImageCards'
                   bordered={false}>
                       <motion.div
-                        whileHover={{ scale: 1.13 }}>
+                        whileHover={{ scale: 1.10 }}>
                         <img className='image' src={movie.backdrop} width={300} height={200}>
                         </img>
-                      </motion.div><h2 className='Movie-title'>
+                      </motion.div>
+                      <h2 className='Movie-title'>
                           {movie.title}
                         </h2>
                         </Card>
-                        </>
+                          </div>
+                    
                   ))
                   }
+                  </div>
                 </>
 
               ))
             }
 
           </Row>
-         
+          </>
+          }
         <div className='circle-group'>
           <div className='circle-1'>
 
@@ -111,10 +152,8 @@ const Dashboard = () => {
           </div>
         </div>
       </Row>
-      <h1>
-
-        Dashboard
-      </h1>
+     
+      
     </div>
   )
 }

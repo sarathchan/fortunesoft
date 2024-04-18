@@ -27,6 +27,12 @@
     margin-right: 200px;
     width: 400px;
 }
+.Header-Search :focus{
+    border-color: #deb992;
+}
+.Header-Search :hover{
+    border-color: #deb992;
+}
 .Header-MovieName h1{
     color:#deb992;
     font-weight: 100;
@@ -74,10 +80,10 @@
     animation: spin 15s linear 0s infinite;
 }
 .ImageCards{
-    margin-top: 40px;
-    margin-left: 1.5%;
+    margin-top: 10px;
+    margin-left: 3%;
     border-image: fill 0 linear-gradient(#0001,#000);
-    z-index: 10;
+    z-index: 1;
 }
 :where(.css-dev-only-do-not-override-usln0u).ant-card .ant-card-body {
     padding: 22px;
@@ -99,3 +105,16 @@
 .genere-name{
     color: #deb992;
 }
+.Moviebygenere-row{
+    overflow-x: scroll;
+    display: flex;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow: -moz-scrollbars-none; /* Firefox */
+    overflow: scroll;
+    min-width: 100%;
+}
+
+    
+    
+   
