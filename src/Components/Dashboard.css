@@ -108,9 +108,9 @@
 .Moviebygenere-row{
     overflow-x: scroll;
     display: flex;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    overflow: -moz-scrollbars-none; /* Firefox */
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+    overflow: -moz-scrollbars-none; 
     overflow: scroll;
     min-width: 100%;
 }
